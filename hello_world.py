@@ -70,19 +70,19 @@
 #         print("Too high")
 # print("You guessed the number!")
 
-secret_number = 7
-guess = 0
-guess_count = 3
-while guess != secret_number and guess_count > 0:
-    guess = int(input("Enter a number: "))
-    if guess < secret_number:
-        print("Too low")
-    elif guess > secret_number:
-        print("Too high")
-    guess_count -= 1
+# secret_number = 7
+# guess = 0
+# guess_count = 3
+# while guess != secret_number and guess_count > 0:
+#     guess = int(input("Enter a number: "))
+#     if guess < secret_number:
+#         print("Too low")
+#     elif guess > secret_number:
+#         print("Too high")
+#     guess_count -= 1
 
-if guess_count == 0:
-    print("You failed to guess the number!")
-else:
-    print("You guessed the number!")
+# if guess_count == 0:
+#     print("You failed to guess the number!")
+# else:
+#     print("You guessed the number!")
 
