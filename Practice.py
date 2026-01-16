@@ -155,71 +155,114 @@ nums = [10, 20, 30, 40, 50, 60]
 
 
 
-ecommerce_data = {
-    "platform": "ShopNow",
-    "country": "USA",
-    "generated_at": "2026-01-15",
+# ecommerce_data = {
+#     "platform": "ShopNow",
+#     "country": "USA",
+#     "generated_at": "2026-01-15",
 
-    "customers": {
-        "C001": {
-            "name": "Manav Jaiswal",
-            "email": "manav@gmail.com",
-            "city": "Tampa",
-            "loyalty_points": 1250,
+#     "customers": {
+#         "C001": {
+#             "name": "Manav Jaiswal",
+#             "email": "manav@gmail.com",
+#             "city": "Tampa",
+#             "loyalty_points": 1250,
 
-            "orders": {
-                "O1001": {
-                    "date": "2026-01-10",
-                    "status": "Delivered",
-                    "payment": {
-                        "method": "Credit Card",
-                        "transaction_id": "TXN9001",
-                        "amount": 1200
-                    },
-                    "items": {
-                        "P01": {"name": "Laptop", "price": 1000, "quantity": 1},
-                        "P02": {"name": "Mouse", "price": 100, "quantity": 2}
-                    }
-                },
+#             "orders": {
+#                 "O1001": {
+#                     "date": "2026-01-10",
+#                     "status": "Delivered",
+#                     "payment": {
+#                         "method": "Credit Card",
+#                         "transaction_id": "TXN9001",
+#                         "amount": 1200
+#                     },
+#                     "items": {
+#                         "P01": {"name": "Laptop", "price": 1000, "quantity": 1},
+#                         "P02": {"name": "Mouse", "price": 100, "quantity": 2}
+#                     }
+#                 },
 
-                "O1002": {
-                    "date": "2026-01-12",
-                    "status": "Shipped",
-                    "payment": {
-                        "method": "PayPal",
-                        "transaction_id": "TXN9002",
-                        "amount": 500
-                    },
-                    "items": {
-                        "P03": {"name": "Keyboard", "price": 500, "quantity": 1}
-                    }
-                }
-            }
-        },
+#                 "O1002": {
+#                     "date": "2026-01-12",
+#                     "status": "Shipped",
+#                     "payment": {
+#                         "method": "PayPal",
+#                         "transaction_id": "TXN9002",
+#                         "amount": 500
+#                     },
+#                     "items": {
+#                         "P03": {"name": "Keyboard", "price": 500, "quantity": 1}
+#                     }
+#                 }
+#             }
+#         },
 
-        "C002": {
-            "name": "Amit Sharma",
-            "email": "amit@gmail.com",
-            "city": "Mumbai",
-            "loyalty_points": 700,
+#         "C002": {
+#             "name": "Amit Sharma",
+#             "email": "amit@gmail.com",
+#             "city": "Mumbai",
+#             "loyalty_points": 700,
 
-            "orders": {
-                "O1003": {
-                    "date": "2026-01-11",
-                    "status": "Delivered",
-                    "payment": {
-                        "method": "UPI",
-                        "transaction_id": "TXN9003",
-                        "amount": 800
-                    },
-                    "items": {
-                        "P04": {"name": "Tablet", "price": 800, "quantity": 1}
-                    }
-                }
-            }
-        }
-    }
-}
+#             "orders": {
+#                 "O1003": {
+#                     "date": "2026-01-11",
+#                     "status": "Delivered",
+#                     "payment": {
+#                         "method": "UPI",
+#                         "transaction_id": "TXN9003",
+#                         "amount": 800
+#                     },
+#                     "items": {
+#                         "P04": {"name": "Tablet", "price": 800, "quantity": 1}
+#                     }
+#                 }
+#             }
+#         }
+#     }
+# }
 
-print(ecommerce_data["customers"].keys())
-print(ecommerce_data["customers"]["C001"].keys())
+# print(ecommerce_data["customers"].keys())
+# print(ecommerce_data["customers"]["C001"].keys())
+
+
+#build a function to do all calculations like sum, difference, product with multiple arguments like a calculator
+def calculator(operation, *numbers):
+    if operation == "sum":
+        return sum(numbers)
+    elif operation == "difference":
+        diff = 0
+        for number in numbers:
+            diff -= number
+        return diff
+    elif operation == "product":
+        product = 1
+        for number in numbers:
+            product *= number
+        return product
+    else:
+        return "Invalid operation"
+print(calculator("sum", 1, 2, 3, 4, 5))
+print(calculator("difference", 1, 2, 3, 4, 5))
+print(calculator("product", 1, 2, 3, 4, 5))
+        
+
+
+
+#Build 3 functions that uses results from the first function to the second argument, and the results from the second function to the third argument
+
+def calculate_subtotal(*prices):
+    return sum(prices)
+
+def apply_discount_and_tax(subtotal, discount_pct=10, tax_pct=5):
+    discounted_price = subtotal - (subtotal * discount_pct / 100)
+    final_amount = discounted_price + (discounted_price * tax_pct / 100)
+    return final_amount
+
+def final_payment(amount, payment_fee):
+    return amount + payment_fee
+
+print(final_payment(apply_discount_and_tax(calculate_subtotal(100, 200, 300)), 20))
+
+
+
+
